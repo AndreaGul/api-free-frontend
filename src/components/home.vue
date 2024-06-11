@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store';
-
+import creaPost from '../components/creaPost.vue';
 export default {
     name: 'home',
 
@@ -9,6 +9,10 @@ export default {
             store,
             
         }
+    },
+
+    components: {
+        creaPost,
     },
   
     methods: {
@@ -41,7 +45,7 @@ export default {
 
 <template>
 ciao
-
+<creaPost/>
 <div v-for="post in store.posts">
     {{ post.title }}
 </div>
