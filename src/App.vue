@@ -17,4 +17,11 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+body{
+  background-color: #386150
+  ;
+  height: 100vh;
+}
+
+</style>

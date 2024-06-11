@@ -53,18 +53,18 @@ export default{
 <template>
    <div>
     <!-- Button to open off-canvas -->
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasForm" aria-controls="offcanvasForm">
+    <button class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasForm" aria-controls="offcanvasForm">
       Aggiungi un post
     </button>
 
     <!-- Off-canvas component -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasForm" aria-labelledby="offcanvasFormLabel">
+    <div class="offcanvas offcanvas-end my-offcanvas" tabindex="-1" id="offcanvasForm" aria-labelledby="offcanvasFormLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasFormLabel">Crea Post</h5>
+        <h5 class="offcanvas-title " id="offcanvasFormLabel">Crea Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <form @submit.prevent="createPost(store.url)" class="container">
+        <form @submit.prevent="createPost(store.url)" class="container text-start">
           <div class="mb-3">
             <label for="title" class="form-label">Titolo:</label>
             <input type="text" id="title" v-model="title" class="form-control" required>
@@ -106,4 +106,37 @@ export default{
   </template>
 
 <style scoped>
+button{
+   background-color: #FFC145 ; 
+}
+button:hover{
+   background-color: rgba(	255, 	193, 69, 0.5)
+   ; 
+}
+
+.my-offcanvas{
+    h5 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #FFFFFB;
+        
+    }
+    width: 700px;
+
+    background-color: #B8B8D1 ;
+    color: #5B5F97;
+    font-size: 18px;
+    font-weight: 600;
+    button{
+        background-color: ;
+   color: #5B5F97 ; 
+   font-size: 18px;
+    font-weight: 600;
+}
+button:hover{
+   background-color: rgba(	255, 	193, 69, 0.5)
+   ; 
+}
+}
+
 </style>
