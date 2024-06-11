@@ -44,13 +44,35 @@ export default {
 
 
 <template>
-ciao
 <creaPost/>
-<div v-for="post in store.posts">
-    {{ post.title }}
-</div>
-<!-- {{ this.posts }} -->
-<div></div>
+<div class="container mt-5">
+    <div class="row g-3">
+      <div v-for="post in store.posts" :key="post.id" class="col-3">
+        <div class="card">
+          <div class="img-container bg-light d-flex align-items-center justify-content-center">
+            <img v-if="post.img" :src="post.img" class="card-img-top " :alt="'Nessun immagine disponibile '+ post.title">
+            <div v-else class="text-center text-muted">
+              Nessun immagine disponibile
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<style></style>
+<style scoped>
+.img-container {
+  height: 100px;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+</style>
