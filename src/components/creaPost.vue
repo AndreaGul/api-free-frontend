@@ -51,43 +51,59 @@ export default{
 </script>
 
 <template>
-<form @submit.prevent="createPost(store.url)">
-    <div>
-            <label for="title">Titolo:</label>
-            <input type="text" id="title" v-model="title" required>
-        </div>
-        <div>
-            <label for="content">Contenuto:</label>
-            <textarea id="content" v-model="content" required></textarea>
-        </div>
-        <div>
-            <label for="published">Pubblicato:</label>
-            <select id="published" v-model="published">
-                <option value="true">Sì</option>
-                <option value="false">No</option>
-            </select>
-        </div>
-        <div>
-            <label for="img">Immagine:</label>
-            <input type="text" id="img" v-model="img">
-        </div>
-        <div>
-            <label for="categoryId">Categoria:</label>
-            <select id="categoryId" v-model="savedCategory">
-                <option :value="null">Seleziona una categoria</option>
-                <option v-for="category in categoryId" :key="category.id" :value="category.id">{{ category.name }}</option>
-            </select>
-        </div>
-        <div>
-            <label for="tags">Tag:</label>
-            <div v-for="tag in tags">
-                <input type="checkbox" :id="tag.id" :value="tag.id" v-model="savedTags">
-                <label :for="tag.id">{{ tag.name }}</label>
-            </div>
-        </div>  
-        <button type="submit">Crea Post</button>
-</form>
-</template>
+   <div>
+    <!-- Button to open off-canvas -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasForm" aria-controls="offcanvasForm">
+      Aggiungi un post
+    </button>
 
-<style>
+    <!-- Off-canvas component -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasForm" aria-labelledby="offcanvasFormLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasFormLabel">Crea Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form @submit.prevent="createPost(store.url)" class="container">
+          <div class="mb-3">
+            <label for="title" class="form-label">Titolo:</label>
+            <input type="text" id="title" v-model="title" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">Contenuto:</label>
+            <textarea id="content" v-model="content" class="form-control" rows="5" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="published" class="form-label">Pubblicato:</label>
+            <select id="published" v-model="published" class="form-select">
+              <option value="true">Sì</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Immagine:</label>
+            <input type="text" id="img" v-model="img" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="categoryId" class="form-label">Categoria:</label>
+            <select id="categoryId" v-model="savedCategory" class="form-select">
+              <option :value="null">Seleziona una categoria</option>
+              <option v-for="category in categoryId" :key="category.id" :value="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="tags" class="form-label">Tag:</label>
+            <div class="form-check" v-for="tag in tags" :key="tag.id">
+              <input type="checkbox" :id="tag.id" :value="tag.id" v-model="savedTags" class="form-check-input">
+              <label :for="tag.id" class="form-check-label">{{ tag.name }}</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Crea Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </template>
+
+<style scoped>
 </style>
